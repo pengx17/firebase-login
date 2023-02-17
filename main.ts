@@ -1,17 +1,23 @@
 // https://firebase.google.com/docs/auth/web/custom-auth
 import { initializeApp } from "firebase/app";
+import assert from 'assert';
 import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
 
-const appConfig2 = {
-  apiKey: "AIzaSyBzF5g8HD1cguiyhkbv90CguVLNas67rZ8",
-  authDomain: "test-125de.firebaseapp.com",
-  projectId: "test-125de",
-};
+import * as dotenv from 'dotenv';
+
+const env = dotenv.config()?.parsed;
+
+assert(env);
 
 const appConfig = {
-  apiKey: "AIzaSyAezKJuZZNcR7XUR9Cm9K7GRMj90DrquQM",
-  authDomain: "pathfinder-52392.firebaseapp.com",
-  projectId: "pathfinder-52392",
+  apiKey: env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId:
+    env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
 const emailPassword = ["pengxiao@outlook.com", "123456789"] as const;
