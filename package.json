@@ -1,0 +1,9 @@
+{
+	"dependencies": {
+		"firebase": "^9.17.1",
+		"tsx": "^3.12.3"
+	},
+	"scripts": {
+		"dev": "tsx watch main"
+	}
+}
